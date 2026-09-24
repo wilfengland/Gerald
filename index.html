@@ -4,57 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naomi's Vintage Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+        body { background-color: #FFFDF6; color: #231F20; min-height: 100vh; display: flex; flex-direction: column; }
+        header { background-color: #FF2E93; padding: 25px 40px; border-bottom: 5px solid #231F20; }
+        .header-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        header h1 { color: white; text-transform: uppercase; text-shadow: 3px 3px #FF6B35; font-size: 2.5rem; margin: 0; }
+        nav ul { list-style-type: none; display: flex; gap: 15px; }
+        nav button { background: #FFEB3B; color: #231F20; border: 3px solid #231F20; padding: 12px 24px; font-weight: bold; font-size: 1.1rem; cursor: pointer; box-shadow: 4px 4px 0px #231F20; }
+        nav button.active { background: #FF6B35; color: white; }
+        main { max-width: 1400px; width: 100%; margin: 40px auto; padding: 0 40px; flex: 1; }
+        .page-section { display: none; background: white; border: 4px solid #231F20; padding: 40px; box-shadow: 8px 8px 0px #231F20; margin-bottom: 50px; }
+        .page-section.active { display: block; }
+        h2 { font-size: 2.2rem; color: #FF6B35; text-transform: uppercase; margin-bottom: 20px; border-bottom: 4px dashed #FF2E93; padding-bottom: 10px; }
+        p { font-size: 1.3rem; line-height: 1.8; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 25px; }
+        .card { background: #FFF; border: 3px solid #231F20; padding: 20px; box-shadow: 6px 6px 0px #231F20; text-align: center; }
+        .card-img { height: 220px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.5rem; margin-bottom: 15px; border: 3px solid #231F20; text-transform: uppercase; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; text-transform: uppercase; }
+        .price { font-size: 1.6rem; color: #FF2E93; font-weight: bold; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; font-size: 1.1rem; margin-bottom: 8px; text-transform: uppercase; }
+        input, textarea, select { width: 100%; padding: 15px; border: 3px solid #231F20; font-size: 1.1rem; box-shadow: 3px 3px 0px #231F20; }
+        .admin-box { background: #f9f9f9; border: 3px dashed #231F20; padding: 25px; margin-top: 25px; }
+        .ai-panel { background: #e3f2fd; border: 3px solid #1976d2; padding: 25px; margin-top: 20px; box-shadow: 4px 4px 0px #1976d2; }
+        .ai-output { background: white; border: 2px solid #231F20; padding: 15px; min-height: 100px; margin-top: 15px; font-style: italic; font-size: 1.2rem; }
+        footer { background-color: #231F20; color: white; text-align: center; padding: 25px 0; font-size: 1.1rem; }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Naomi's Vintage Shop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="manage.html">Manage</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <h1 id="txt-siteTitle">Naomi's Vintage Shop</h1>
+            <nav>
+                <ul>
+                    <li><button onclick="showPage('home')" id="btn-home" class="active">Home</button></li>
+                    <li><button onclick="showPage('about')" id="btn-about">About</button></li>
+                    <li><button onclick="showPage('shop')" id="btn-shop">Shop</button></li>
+                    <li><button onclick="showPage('gallery')" id="btn-gallery">Gallery</button></li>
+                    <li><button onclick="showPage('manage')" id="btn-manage" style="background: #231F20; color: white;">Manage 🔐</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-    <main>
-        <section id="home">
-            <h2>Discover Unique Vintage Items</h2>
-            <p>Explore our collection of handpicked vintage treasures.</p>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Naomi's Vintage is dedicated to bringing you the best in vintage fashion and decor.</p>
-        </section>
-
-        <section id="shop">
-            <h2>Shop Now</h2>
-            <p>Browse our latest arrivals and find your perfect piece.</p>
-        </section>
-
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <p>Check out our stunning collection of vintage items.</p>
-        </section>
-
-        <section id="manage">
-            <h2>Admin Login</h2>
-            <form action="admin_dashboard.html" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Naomi's Vintage Shop. All rights reserved.</p>
-    </footer>
-</body>
-</html>
