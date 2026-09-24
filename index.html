@@ -125,4 +125,105 @@
             </div>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2026 Naomi's Vintage Shop. Built beautifully by hand. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let siteData = JSON.parse(localStorage.getItem('naomi_vintage_data')) || {
+            siteTitle: "Naomi's Vintage Shop",
+            homeHeading: "Discover Unique Vintage Items",
+            homeBody: "Welcome to our wide-screen retro station! Explore an incredible collection of handpicked vintage treasures, throwback patterns, and legendary styles.",
+            shopHeading: "Shop the Collection",
+            shopBody: "Browse our active product drops below.",
+            products: [
+                { id: 1, title: "1970s Leather Coat", price: "120.00", color: "#FF6B35" },
+                { id: 2, title: "Neon Graphic Tee", price: "35.00", color: "#FF2E93" }
+            ]
+        };
+
+        function initSite() {
+            for (let key in siteData) {
+                if (key !== 'products') {
+                    let el = document.getElementById('txt-' + key);
+                    let input = document.getElementById('edit-' + key);
+                    if (el) el.innerText = siteData[key];
+                    if (input) input.value = siteData[key];
+                }
+            }
+            renderShop();
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.getElementById('btn-' + pageId).classList.add('active');
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('admin-password').value;
+            if (pass === 'vintage123' || pass === 'admin') {
+                alert('🔓 Passcode accepted! Opening Naomi\'s content controls.');
+                document.getElementById('admin-auth').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+            } else {
+                alert('❌ Invalid password token! Type vintage123 to access.');
+            }
+        }
+
+        function updateText(field) {
+            const val = document.getElementById('edit-' + field).value;
+            siteData[field] = val;
+            let el = document.getElementById('txt-' + field);
+            if (el) el.innerText = val;
+            localStorage.setItem('naomi_vintage_data', JSON.stringify(siteData));
+        }
+
+        function renderShop() {
+            const grid = document.getElementById('shop-grid');
+            grid.innerHTML = '';
+            siteData.products.forEach(p => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <div class="card-img" style="background: ${p.color}">${p.title.substring(0,2)}</div>
+                        <h3>${p.title}</h3>
+                        <p class="price">£${p.price}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function addProduct() {
+            const title = document.getElementById('prod-title').value;
+            const price = document.getElementById('prod-price').value;
+            const color = document.getElementById('prod-color').value;
+            if(!title || !price) return alert("Please specify item title and retail price!");
+            siteData.products.push({ id: Date.now(), title, price, color });
+            renderShop();
+            localStorage.setItem('naomi_vintage_data', JSON.stringify(siteData));
+            document.getElementById('prod-title').value = '';
+            document.getElementById('prod-price').value = '';
+            alert("📦 New item successfully compiled into live catalog window!");
+        }
+
+        function askAI() {
+            const prompt = document.getElementById('ai-input').value.toLowerCase();
+            const output = document.getElementById('ai-output');
+            output.innerText = "Querying style library matrices...";
+            setTimeout(() => {
+                if (prompt.includes('jacket') || prompt.includes('coat')) {
+                    output.innerText = "✨ AI Content Suggestion: 'Inject ultimate vintage gravity into your styling layout. This retro outerwear statement coat features premium saturated block tones and authentic high-contrast details.'";
+                } else if (prompt.includes('sale') || prompt.includes('ad')) {
+                    output.innerText = "✨ AI Ad Script: '🚨 DISPATCH FROM DECADES PAST! Score huge vintage discounts this week only. Dial up the retro vibe and unlock your classic closet today!'";
+                } else {
+                    output.innerText = `✨ AI Proposal for "${prompt}": 'An excellent structural asset item perfectly tuned for Naomi's collection grid. Blends high-intensity neon aesthetics with an authentic throwback layout profile.'`;
+                }
+            }, 600);
+        }
+
+        initSite();
+    </script>
+</body>
+</html>
 
