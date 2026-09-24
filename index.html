@@ -47,3 +47,82 @@
             </nav>
         </div>
     </header>
+        <main>
+        <section id="page-home" class="page-section active">
+            <h2 id="txt-homeHeading">Discover Unique Vintage Items</h2>
+            <p id="txt-homeBody">Welcome to our wide-screen retro station! Explore an incredible collection of handpicked vintage treasures, throwback patterns, and legendary styles.</p>
+            <div style="background: #FF6B35; color: white; padding: 30px; text-align: center; font-size: 1.8rem; font-weight: bold; border: 3px solid #231F20; box-shadow: 5px 5px 0px #231F20; margin-top: 30px;">
+                ⚡ RETRO SUPER SALE ACTIVE THIS WEEKEND ⚡
+            </div>
+        </section>
+
+        <section id="page-about" class="page-section">
+            <h2 id="txt-aboutHeading">Our Vintage Story</h2>
+            <p id="txt-aboutBody">Naomi's Vintage is completely dedicated to bringing you the finest select fashion items, brilliant styling histories, and sustainable statement outfits.</p>
+        </section>
+
+        <section id="page-shop" class="page-section">
+            <h2 id="txt-shopHeading">Shop the Collection</h2>
+            <p id="txt-shopBody">Browse our active product drops below. These pieces are fully customizable via your dashboard panel!</p>
+            <div id="shop-grid" class="grid"></div>
+        </section>
+
+        <section id="page-gallery" class="page-section">
+            <h2>Lookbook Gallery</h2>
+            <p>Get inspired by some of our favorite layout sets and historic color blends.</p>
+            <div class="grid">
+                <div class="card"><div class="card-img" style="background:#FF2E93">1980s Neon Vault</div><h3>Neon Set</h3></div>
+                <div class="card"><div class="card-img" style="background:#FF6B35">1970s Leather Luxe</div><h3>Suede Set</h3></div>
+                <div class="card"><div class="card-img" style="background:#FFEB3B; color:#231F20">Groovy Mod Wave</div><h3>Deco Set</h3></div>
+            </div>
+        </section>
+
+        <section id="page-manage" class="page-section">
+            <h2>Admin Control Portal</h2>
+            <div id="admin-auth">
+                <p>Log in using the manager passcode token to update site texts, inject product cards, and talk to your AI.</p>
+                <div class="form-group">
+                    <label for="admin-password">Secret Store Password:</label>
+                    <input type="password" id="admin-password" placeholder="Type password here...">
+                </div>
+                <button type="button" onclick="checkPassword()" style="background:#FF6B35; color:white; border:3px solid #231F20; padding:12px 24px; font-weight:bold; cursor:pointer;">Unlock Terminal</button>
+                <p style="margin-top: 15px; color: #666; font-size: 1rem;">Hint password code for Naomi: <strong>vintage123</strong></p>
+            </div>
+
+            <div id="admin-panel" style="display: none;">
+                <div style="background: #4CAF50; color: white; padding: 15px; margin-bottom: 25px; text-align: center; font-weight: bold; font-size: 1.2rem; border: 3px solid #231F20;">
+                    🔓 LOGGED IN: ADMIN TERMINAL ONLINE
+                </div>
+                <h3>🧠 Naomi's Live AI Assistant</h3>
+                <div class="ai-panel">
+                    <p>Ask your store AI manager to write marketing scripts or item description text strings instantly:</p>
+                    <input type="text" id="ai-input" placeholder="e.g., 'Write a description for neon ski jackets'" style="margin-top: 10px;">
+                    <button type="button" onclick="askAI()" style="background:#FFEB3B; border:3px solid #231F20; padding:10px 20px; font-weight:bold; cursor:pointer; margin-top:10px;">Generate Copy</button>
+                    <div id="ai-output" class="ai-output">Hi Naomi! Input a text request above and I'll generate ideas...</div>
+                </div>
+
+                <h3 style="margin-top:40px;">✏️ Dynamic Text Content Controller</h3>
+                <div class="admin-box">
+                    <div class="form-group"><label for="edit-siteTitle">Main Website Title</label><input type="text" id="edit-siteTitle" oninput="updateText('siteTitle')"></div>
+                    <div class="form-group"><label for="edit-homeHeading">Home Screen Header</label><input type="text" id="edit-homeHeading" oninput="updateText('homeHeading')"></div>
+                    <div class="form-group"><label for="edit-homeBody">Home Screen Content Text</label><textarea id="edit-homeBody" rows="4" oninput="updateText('homeBody')"></textarea></div>
+                </div>
+
+                <h3 style="margin-top:40px;">📦 Product Pipeline Inserter</h3>
+                <div class="admin-box">
+                    <div class="form-group"><label for="prod-title">New Product Name</label><input type="text" id="prod-title" placeholder="e.g., Retro Polka Dress"></div>
+                    <div class="form-group"><label for="prod-price">Retail Price Tag (£)</label><input type="text" id="prod-price" placeholder="e.g., 45.00"></div>
+                    <div class="form-group">
+                        <label for="prod-color">Vibrant Canvas Pattern Color</label>
+                        <select id="prod-color">
+                            <option value="#FF2E93">Pink Saturated Velvet</option>
+                            <option value="#FF6B35">Orange Laser Suede</option>
+                            <option value="#4CAF50">Groovy Green Knit</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="addProduct()" style="background:#FFEB3B; border:3px solid #231F20; padding:12px 24px; font-weight:bold; cursor:pointer;">Inject Into Live Shop</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
