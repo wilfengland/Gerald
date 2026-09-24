@@ -1,0 +1,53 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #FFFDF6; /* Soft Cream */
+    color: #231F20;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #FF2E93; /* Vibrant Hot Pink */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #231F20;
+}
+header h1 {
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 3px 3px #FF6B35; /* Electric Orange Shadow */
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #231F20;
+    background: #FFEB3B; /* Retro Yellow Buttons */
+    border: 2px solid #231F20;
+    padding: 8px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 3px 3px 0px #231F20;
+}
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border: 3px solid #231F20;
+    box-shadow: 6px 6px 0px #231F20;
+}
+h2 {
+    color: #FF6B35;
+}
+footer {
+    background-color: #231F20;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
